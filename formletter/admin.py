@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Letter, Template
+from .models import Diagnosis, Letter, Patient, Template
 
 class TemplateAdmin(admin.ModelAdmin):
     fields = ['title', 'text',]
@@ -7,6 +7,16 @@ class TemplateAdmin(admin.ModelAdmin):
 admin.site.register(Template, TemplateAdmin)
 
 class LetterAdmin(admin.ModelAdmin):
-    fields = ['title', 'template',]
+    fields = ['title', 'template', 'patient', 'diagnosis']
 
 admin.site.register(Letter, LetterAdmin)
+
+class PatientAdmin(admin.ModelAdmin):
+    fields = ['last_4', 'last_initial', 'first_initial',]
+
+admin.site.register(Patient, PatientAdmin)
+
+class DiagnosisAdmin(admin.ModelAdmin):
+    fields = ['name', 'description',]
+
+admin.site.register(Diagnosis, DiagnosisAdmin)
