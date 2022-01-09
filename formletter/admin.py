@@ -12,7 +12,7 @@ class LetterAdmin(admin.ModelAdmin):
 admin.site.register(Letter, LetterAdmin)
 
 class PatientAdmin(admin.ModelAdmin):
-    fields = ['last_4', 'last_initial', 'first_initial',]
+    fields = ['last_4', 'last_initial', 'first_initial', 'diagnosis']
 
 admin.site.register(Patient, PatientAdmin)
 
