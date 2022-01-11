@@ -19,5 +19,5 @@ from .views import IntakeView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('letters/intake/', IntakeView)
+    path('letters/intake/<int:patient_id>', IntakeView)
 ]
