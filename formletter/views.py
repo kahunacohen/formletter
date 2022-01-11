@@ -1,6 +1,11 @@
 from django.shortcuts import render
-from .models import Patient
+from .models import Letter, Patient
 from django.shortcuts import get_object_or_404
+
+
+def LettersView(request):
+  ls = Letter.objects.all()
+  return render(request, 'formletter/letters.html', {'letters': ls})
 
 def IntakeView(request, patient_id):
   p = get_object_or_404(Patient, pk=patient_id)

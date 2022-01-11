@@ -15,9 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from .views import IntakeView
+from .views import IntakeView, LettersView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('letters/intake/<int:patient_id>', IntakeView)
+    path('letters/', LettersView, name="letters"),
+    path('letters/<int:patient_id>', IntakeView, name="letter")
 ]
