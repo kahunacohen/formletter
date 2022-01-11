@@ -13,7 +13,7 @@ class Diagnosis(models.Model):
   created_at = models.DateTimeField(auto_now_add=True)
   updated_at = models.DateTimeField(auto_now=True)
   name = models.CharField(max_length=100)
-  description = models.TextField(max_length=1000)
+  description = models.TextField(max_length=1000, null=True, blank=True)
   def __str__(self):
     return self.name
 
@@ -22,7 +22,7 @@ class Patient(models.Model):
   updated_at = models.DateTimeField(auto_now=True)
   last_initial = models.CharField(max_length=1)
   first_initial = models.CharField(max_length=1)
-  last_4 = models.IntegerField(max_length=4)
+  last_4 = models.CharField(max_length=4)
   diagnoses = models.ManyToManyField(Diagnosis)
 
   def __str__(self):
