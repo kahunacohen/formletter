@@ -1,15 +1,10 @@
-<style>
-  table, th, td {
-    border: 1px solid black;
-    border-collapse: collapse;
-  }
-  th, td {
-    padding: 15px;
-  }
-  </style>
-<table>
+{% extends "./base.html" %}
+{% block content %}
+<table class="table table-striped ">
   <thead>
     <tr>
+      <th>Letter</th>
+      <th>Type</th>
       <th>Patient</th>  
     </tr>
   </thead>
@@ -17,9 +12,10 @@
     {% for letter in letters %}
       <tr>
         <td><a href="{% url 'letter' letter.patient.pk %}">{{letter.title}}</a></td>
-        
+        <td>{{letter.patient}}</td>
+        <td>{{letter.patient}}</td>
       </tr>
     {% endfor %}
   </tbody>
-
 </table>
+{% endblock %}

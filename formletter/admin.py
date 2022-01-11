@@ -1,13 +1,13 @@
 from django.contrib import admin
-from .models import Diagnosis, Letter, Patient, Template
+from .models import Diagnosis, Letter, Patient, LetterType
 
-class TemplateAdmin(admin.ModelAdmin):
-    fields = ['title', 'text',]
+class LetterTypeAdmin(admin.ModelAdmin):
+    fields = ['type',]
 
-admin.site.register(Template, TemplateAdmin)
+admin.site.register(LetterType, LetterTypeAdmin)
 
 class LetterAdmin(admin.ModelAdmin):
-    fields = [ 'title', 'template', 'patient']
+    fields = [ 'title', 'type', 'patient']
 
 admin.site.register(Letter, LetterAdmin)
 
