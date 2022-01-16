@@ -9,4 +9,4 @@ def LettersView(request):
 
 def IntakeView(request, patient_id):
   p = get_object_or_404(Patient, pk=patient_id)
-  return render(request, 'formletter/intake.html', {'first_initial': p.first_initial, 'last_initial': p.last_initial, 'last_4': p.last_4, 'diagnoses': p.diagnoses.all()})
+  return render(request, 'formletter/intake.html', {'first_initial': p.first_initial, 'last_initial': p.last_initial, 'last_4': p.last_4, 'diagnoses': p.diagnoses.all(), 'age': p.age, 'marital_status': p.marital_status, 'history': p.history})

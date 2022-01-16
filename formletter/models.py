@@ -16,6 +16,15 @@ class Patient(models.Model):
   first_initial = models.CharField(max_length=1)
   last_4 = models.CharField(max_length=4)
   diagnoses = models.ManyToManyField(Diagnosis)
+  age = models.IntegerField()
+  history = models.TextField(max_length=10000)
+  class MaritalStatus(models.TextChoices):
+        SINGLE = 'single', "Single"
+        MARRIED = 'married', "Married"
+  marital_status = models.CharField(
+        max_length=10,
+        choices=MaritalStatus.choices,
+        default=MaritalStatus.SINGLE)
 
   def __str__(self):
     return f'{self.last_initial}{self.first_initial}{self.last_4}'
